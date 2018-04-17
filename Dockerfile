@@ -11,7 +11,7 @@ LABEL maintainer "Dan Robinson <dan.robinson@uk.ibm.com>, Sam Rogers <srogers@uk
 
 LABEL "ProductID"="447aefb5fd1342d5b893f3934dfded73" \
       "ProductName"="IBM Integration Bus" \
-      "ProductVersion"="10.0.0.11"
+      "ProductVersion"="10.0.0.10"
 
 # Install curl
 RUN apt-get update && \
@@ -20,9 +20,9 @@ RUN apt-get update && \
 
 # Install IIB V10 Developer edition
 RUN mkdir /opt/ibm && \
-    curl http://public.dhe.ibm.com/ibmdl/export/pub/software/websphere/integration/10.0.0.11-IIB-LINUX64-DEVELOPER.tar.gz \
-    | tar zx --exclude iib-10.0.0.11/tools --directory /opt/ibm && \
-    /opt/ibm/iib-10.0.0.11/iib make registry global accept license silently
+    curl http://10.0.0.1:8080/10.0.0-IIB-LINUXX64-FP0010.tar.gz \
+    | tar zx --exclude iib-10.0.0.10/tools --directory /opt/ibm && \
+    /opt/ibm/iib-10.0.0.10/iib make registry global accept license silently
 
 # Configure system
 RUN echo "IIB_10:" > /etc/debian_chroot  && \
