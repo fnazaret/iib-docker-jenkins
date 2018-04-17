@@ -25,7 +25,7 @@ node {
 
             create a deployment. Comment this line out after the first deployment. 
 		//    sh "kubectl run iib10app-iibchart --image ${imageName}"
-        	sh "kubectl set image deployment/iib-rel1-ibm-integration demoapp-demochart=${imageName}"
+        	sh "kubectl set image deployment/iib-rel1-ibm-integration iib-rel1-ibm-integration=${imageName}"
         	sh "kubectl rollout status deployment/iib-rel1-ibm-integration"
 	}
     }
